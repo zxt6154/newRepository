@@ -1,0 +1,27 @@
+</style></head><body class=3D"=
+ spellcheck=3D"false" ><div><font face=3D"Consola=
+s"><span style=3D"font-size: 0.833rem; line-height: 22.6576px;">&=
+nbsp;List&lt;Product&gt; query =3D jdbcTemplate.query(sql, new Ro=
+wMapper&lt;Product&gt;() {</span></font></div><div><font face=3D"=
+Consolas"><span style=3D"font-size: 0.833rem; line-height: 22.657=
+6px;">&nbsp;@Override       public Product mapRow(ResultSet arg0,=
+ int arg1) throws SQLException {&nbsp;</span></font></div><div><f=
+ont face=3D"Consolas"><span style=3D"font-size: 0.833rem; line-he=
+ight: 22.6576px;">&nbsp;Product p =3D new Product();</span></font=
+></div><div><font face=3D"Consolas"><span style=3D"font-size: 0.8=
+33rem; line-height: 22.6576px;">&nbsp;p.setPid(arg0.getInt("pid")=
+);</span></font></div><div><font face=3D"Consolas"><span style=3D=
+"font-size: 0.833rem; line-height: 22.6576px;">&nbsp;p.setPname(a=
+rg0.getString("pname"));</span></font></div><div><font face=3D"Co=
+nsolas"><span style=3D"font-size: 0.833rem; line-height: 22.6576p=
+x;">&nbsp;p.setPrice(arg0.getDouble("price"));          return p;=
+&nbsp;</span></font></div><div><font face=3D"Consolas"><span styl=
+e=3D"font-size: 0.833rem; line-height: 22.6576px;">&nbsp; &nbsp;}=
+</span></font></div><div><font face=3D"Consolas"><span style=3D"f=
+ont-size: 0.833rem; line-height: 22.6576px;">&nbsp;});</span></fo=
+nt></div></body></html>
+
+------=_Next_Part_1354491312.334--
+
+------=_Next_Part_4063473936.467--
+

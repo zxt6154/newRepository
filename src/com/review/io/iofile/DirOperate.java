@@ -2,6 +2,7 @@ package com.review.io.iofile;
 
 import java.io.File;
 import java.io.FilenameFilter;
+import java.util.Arrays;
 
 public class DirOperate {
     //mkdie  需要有真实父目录，没有则不创建
@@ -53,11 +54,25 @@ public class DirOperate {
            }
        }
     }
+    //输出子孙级目录或者文件名称
+    public static void methodthree(){
+        String path = "D:/study/workplace/ImportantStart";
+        File src = new File(path);
+        File[] roots = File.listRoots();
+        System.out.println("根节点输出测试： "+ Arrays.toString(roots));
+        printNames(src);
 
-    public static void methodthree(){//输出子孙级目录或者文件名称
-        String file = "D:/study/workplace/ImportantStart";
-        File src = new File(file);
-
+        }
+        public static void printNames(File src){
+            if(null == src || !src.exists()){
+                return;
+            }
+                System.out.println("递归输出子孙级文件名绝对路径： "+src.getAbsolutePath());
+            if(src.isDirectory()){
+                for (File sub : src.listFiles()) {
+                    printNames(sub);
+                }
+            }
         }
 
 }
