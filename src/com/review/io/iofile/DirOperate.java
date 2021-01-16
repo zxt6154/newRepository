@@ -1,12 +1,13 @@
 package com.review.io.iofile;
 
 import java.io.File;
+import java.io.FilenameFilter;
 
 public class DirOperate {
     //mkdie  需要有真实父目录，没有则不创建
     //mkdirs  没有父目录则一同创建
     public static void main(String[] args) {
-        methodone();
+        methodthree();
     }
     public static void methodone(){
         String file = "D:/study/workplace/parent/test";
@@ -16,4 +17,47 @@ public class DirOperate {
         boolean mkdirs = src.mkdirs();
         System.out.println(mkdirs?"successful":"failure");
     }
+    public static void methodtwo(){
+        String file = "D:/study/workplace/ImportantStart";
+        File src = new File(file);
+       if(src.isDirectory()){
+           String[] subNames = src.list();
+           for (String subName:subNames) {
+              // System.out.println(subName);
+              /* .git
+                 .idea
+                 desktop.ini
+                 ImportantStart.iml
+                 out
+                src*/
+           }
+           File[] files = src.listFiles();
+           for (File tempfile : files) {
+              // System.out.println(tempfile.getAbsolutePath());
+              /* D:\study\workplace\ImportantStart\.git
+               D:\study\workplace\ImportantStart\.idea
+               D:\study\workplace\ImportantStart\desktop.ini
+               D:\study\workplace\ImportantStart\ImportantStart.iml
+               D:\study\workplace\ImportantStart\out
+               D:\study\workplace\ImportantStart\src*/
+           }
+           files = src.listFiles(new FilenameFilter() {
+               @Override
+               public boolean accept(File dir, String name) {
+                  // System.out.println(dir.getName());
+                   return new File(dir,name).isFile()&&name.endsWith(".iml");
+               }
+           });
+           for(File tem:files){
+               System.out.println(tem.getAbsolutePath());
+           }
+       }
+    }
+
+    public static void methodthree(){//输出子孙级目录或者文件名称
+        String file = "D:/study/workplace/ImportantStart";
+        File src = new File(file);
+
+        }
+
 }
